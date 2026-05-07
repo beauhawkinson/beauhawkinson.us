@@ -20,7 +20,6 @@ body {
   --font-size-base: 12px;
 
   --background: oklch(1 0 0);
-  --surface: oklch(1 0 0);
   --muted: oklch(0.94 0.001 286.375);
   --border: oklch(0.92 0.004 286.32);
 
@@ -64,6 +63,10 @@ body {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @layer base {

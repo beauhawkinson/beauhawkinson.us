@@ -1,9 +1,10 @@
-import { app } from "lib/config/app";
-
-import "./global.css";
+import { app } from "@/lib/config/app";
 
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+
+import "./global.css";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: {
@@ -55,8 +56,12 @@ interface Props {
 
 const RootLayout = ({ children }: Readonly<Props>) => (
   <html lang="en">
-    <body className="bg-[#f5f5f5] antialiased">
-      <main>{children}</main>
+    <body>
+      <main>
+        <TooltipProvider delayDuration={400} skipDelayDuration={300}>
+          {children}
+        </TooltipProvider>
+      </main>
     </body>
   </html>
 );
