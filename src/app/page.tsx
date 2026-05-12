@@ -42,10 +42,10 @@ const experience: Experience[] = [
 const ActiveBadge = () => (
   <Tooltip delayDuration={200}>
     <TooltipTrigger asChild>
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 font-medium text-emerald-500 text-xs">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
         <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
         </span>
         in progress
       </span>
@@ -70,7 +70,7 @@ const ProjectCard = ({
     <li
       className={
         isActive
-          ? "grid gap-3 rounded-lg bg-emerald-500/5 p-5 ring-1 ring-emerald-500/15 transition-colors"
+          ? "grid gap-3 rounded-lg bg-active-bg p-5 ring-1 ring-active-ring transition-colors"
           : isFeatured
             ? "grid gap-3 rounded-lg bg-primary/5 p-5"
             : "grid gap-3 rounded-lg p-5 transition-colors hover:bg-muted/50"
