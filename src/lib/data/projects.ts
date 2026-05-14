@@ -19,24 +19,24 @@ const personalProjects: ProjectProps[] = [
       "A full-stack SaaS boilerplate built on TanStack Start with a focus on developer experience and production-readiness. Features multi-provider authentication (Google, GitHub, Passkeys, Ethereum/SIWE), Stripe billing with plans and trials, a fully functional task management module, and deep UI customization including OKLCH-based theming, sidebar layout variants, font sizing, and pointer preferences — all persisted per user. Built with React 19, Drizzle ORM, Tailwind v4, better-auth, Wagmi, and Bun.",
     date: "2025",
     status: "active",
-    links: [{ name: "website", url: "https://twonarly.vercel.app" }],
+    links: [{ name: "website", url: "https://beauhawkinson-april.vercel.app" }],
   },
 ];
 
 // Freelance — independent client work outside of Omni
 const freelanceProjects: ProjectProps[] = [
   {
-    name: "JP MotorCross",
+    name: "Porterhouse MX",
     description:
       "An ecommerce site for a custom motocross apparel brand. Building out the storefront, product catalog, and checkout flow.",
-    client: "JP MotorCross",
+    client: "Porterhouse MX",
     status: "active",
     links: [],
   },
   {
     name: "NEUROally",
     description:
-      "A task management application designed to support neurodivergent users in tracking and completing tasks that might previously have been daunting. Featuring sophisticated notification reminders tailored to user preferences and workflow optimization. Originally built as a freelance collaboration with another engineer — the client (COGNI Solutions) later became part of Omni's portfolio when we joined the agency.",
+      "A task management application designed to support neurodivergent users in tracking and completing tasks that might previously have been daunting. Featuring sophisticated notification reminders tailored to user preferences and workflow optimization. Built as a freelance collaboration with another engineer for COGNI Solutions. When we joined Omni in 2024, COGNI came with us as a client.",
     client: "COGNI Solutions",
     date: "July 2024",
     links: [{ name: "website", url: "https://neuroally.app/" }],

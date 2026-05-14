@@ -11,7 +11,6 @@ import {
   personalProjects,
 } from "@/lib/data/projects";
 import { socials } from "@/lib/data/socials";
-import { getDurationSince } from "@/lib/utils/duration";
 
 import type { ProjectProps } from "@/lib/data/projects";
 
@@ -179,12 +178,9 @@ const HomePage = () => {
         </ul>
       </header>
 
-      {/* ============================================ */}
-      {/* WORK — Omni and everything under it          */}
-      {/* ============================================ */}
+      {/* WORK */}
       <section className="mb-24">
-        <SectionHeading eyebrow="Currently" title="Work" />
-
+        <SectionHeading title="Work" />
         {/* Job card */}
         <div className="mb-10 rounded-lg p-5">
           <div className="mb-5 flex items-center justify-between">
@@ -211,12 +207,6 @@ const HomePage = () => {
           <ul className="flex flex-col">
             {experience.map(({ id, title, type, startDate, endDate }, index) => {
               const isLast = index === experience.length - 1;
-              const isCurrent = !endDate;
-              const duration = isCurrent
-                ? getDurationSince(startDate)
-                : getDurationSince(new Date(endDate));
-
-              const dateRange = isCurrent ? "Sep 2024 – Present" : "Aug 2024 – Sep 2024";
 
               return (
                 <li key={id} className="relative flex gap-4">
@@ -230,9 +220,7 @@ const HomePage = () => {
                     <p className="mt-0.5 text-muted-foreground text-xs">{type}</p>
                     <Tooltip delayDuration={300}>
                       <TooltipTrigger asChild>
-                        <p className="mt-0.5 cursor-help text-faded-foreground text-xs">
-                          {dateRange} • {duration}
-                        </p>
+                        <span className="text-xs">{formatDuration(startDate, endDate)}</span>
                       </TooltipTrigger>
                       <TooltipContent side="bottom" align="start" sideOffset={4}>
                         Started{" "}
@@ -295,15 +283,9 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ============================================ */}
-      {/* FREELANCE — independent paid work             */}
-      {/* ============================================ */}
+      {/* FREELANCE */}
       <section className="mb-24">
-        <SectionHeading
-          eyebrow="On the side"
-          title="Freelance"
-          subtitle="Independent client work outside of Omni"
-        />
+        <SectionHeading title="Freelance" subtitle="Independent client work outside of Omni" />
 
         <ul className="grid gap-2">
           {freelanceProjects.map((project) => (
@@ -312,15 +294,9 @@ const HomePage = () => {
         </ul>
       </section>
 
-      {/* ============================================ */}
-      {/* PERSONAL — projects I built myself           */}
-      {/* ============================================ */}
+      {/* PERSONAL */}
       <section>
-        <SectionHeading
-          eyebrow="Independent"
-          title="Personal Projects"
-          subtitle="Things I've built outside of Omni"
-        />
+        <SectionHeading title="Personal Projects" subtitle="Things I've built outside of Omni" />
 
         <ul className="grid gap-2">
           {personalProjects.map((project, index) => (
@@ -333,3 +309,29 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+function formatDuration(startDate: string, endDate?: string): string {
+  const start = new Date(startDate);
+  const end = endDate ? new Date(endDate) : new Date();
+
+  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+
+  // Round up if we're past the day-of-month
+  if (end.getDate() >= start.getDate()) {
+    months += 0;
+  } else {
+    months -= 1;
+  }
+
+  // Clamp to at least 1 month so very short stints don't show "0 mos"
+  months = Math.max(months, 1);
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  const parts: string[] = [];
+  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
+  if (remainingMonths > 0) parts.push(`${remainingMonths} mo${remainingMonths > 1 ? "s" : ""}`);
+
+  return parts.join(" ");
+}
