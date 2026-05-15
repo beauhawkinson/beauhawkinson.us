@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { experience } from "@/lib/data/experiences";
 import {
   clientProjects,
   freelanceProjects,
@@ -13,47 +14,6 @@ import {
 import { socials } from "@/lib/data/socials";
 
 import type { ProjectProps } from "@/lib/data/projects";
-
-interface Experience {
-  id: number;
-  title: string;
-  type: string;
-  startDate: string;
-  endDate?: string;
-}
-
-const experience: Experience[] = [
-  {
-    id: 1,
-    title: "Software Engineer",
-    type: "Full-time",
-    startDate: "2024-09-23",
-  },
-  {
-    id: 2,
-    title: "Software Engineer",
-    type: "Contract",
-    startDate: "2024-08-01",
-    endDate: "2024-09-22",
-  },
-];
-
-const ActiveBadge = () => (
-  <Tooltip delayDuration={200}>
-    <TooltipTrigger asChild>
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
-        </span>
-        in progress
-      </span>
-    </TooltipTrigger>
-    <TooltipContent side="top" sideOffset={8}>
-      Currently building this
-    </TooltipContent>
-  </Tooltip>
-);
 
 const ProjectCard = ({
   project,
@@ -78,7 +38,22 @@ const ProjectCard = ({
       <div className="grid min-w-0 gap-1.5">
         <div className="flex flex-wrap items-center gap-2">
           <b className="text-foreground text-sm">{name}</b>
-          {isActive && <ActiveBadge />}
+          {isActive && (
+            <Tooltip delayDuration={200}>
+              <TooltipTrigger asChild>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
+                  </span>
+                  in progress
+                </span>
+              </TooltipTrigger>
+              <TooltipContent side="top" sideOffset={8}>
+                Currently building this
+              </TooltipContent>
+            </Tooltip>
+          )}
           {isFeatured && !isActive && (
             <span className="rounded-full bg-primary/10 px-2 py-0.5 font-medium text-primary text-xs">
               featured
@@ -111,21 +86,16 @@ const ProjectCard = ({
 };
 
 const SectionHeading = ({
-  eyebrow,
   title,
   subtitle,
   action,
 }: {
-  eyebrow?: string;
   title: string;
   subtitle?: string;
   action?: React.ReactNode;
 }) => (
   <div className="mb-6 flex items-end justify-between gap-4">
     <div>
-      {eyebrow && (
-        <p className="mb-1 text-faded-foreground text-xs uppercase tracking-widest">{eyebrow}</p>
-      )}
       <h2 className="font-semibold text-base text-foreground">{title}</h2>
       {subtitle && <p className="mt-1 text-muted-foreground text-xs">{subtitle}</p>}
     </div>
@@ -136,7 +106,6 @@ const SectionHeading = ({
 const HomePage = () => {
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
-      {/* Header */}
       <header className="mb-24">
         <div className="mb-6">
           <h1 className="font-semibold text-foreground text-sm">Beau Hawkinson</h1>
@@ -157,31 +126,36 @@ const HomePage = () => {
         </p>
 
         <ul className="flex items-center gap-1">
-          {socials.map(({ name, url, icon }) => (
-            <li key={name}>
-              <Tooltip delayDuration={300}>
-                <TooltipTrigger asChild>
-                  <Button variant="ghost" className="size-7 px-0">
-                    <a href={url} target="_blank" rel="noopener noreferrer">
+          {socials.map(({ name, url, icon }) => {
+            return (
+              <li key={name}>
+                <Tooltip delayDuration={300}>
+                  <TooltipTrigger asChild>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={name}
+                      className={buttonVariants({ variant: "ghost" })}
+                    >
                       <span className="text-muted-foreground [&>svg]:h-3.5 [&>svg]:w-3.5">
                         {icon}
                       </span>
                     </a>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="bottom" sideOffset={8}>
-                  {name}
-                </TooltipContent>
-              </Tooltip>
-            </li>
-          ))}
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" sideOffset={8}>
+                    {name}
+                  </TooltipContent>
+                </Tooltip>
+              </li>
+            );
+          })}
         </ul>
       </header>
 
-      {/* WORK */}
       <section className="mb-24">
         <SectionHeading title="Work" />
-        {/* Job card */}
+
         <div className="mb-10 rounded-lg p-5">
           <div className="mb-5 flex items-center justify-between">
             <div className="flex items-center gap-3">
