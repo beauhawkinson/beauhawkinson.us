@@ -7,7 +7,7 @@ interface Social {
 const socials: Social[] = [
   {
     name: "GitHub",
-    url: "https://github.com/Twonarly1",
+    url: "https://github.com/beauhawkinson",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 496 512">
         <title>GitHub</title>
