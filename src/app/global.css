@@ -6,8 +6,7 @@
 
 body {
   @apply m-0;
-  font-family:
-    var(--font-sans), system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size-base);
@@ -39,18 +38,18 @@ h4 {
   /* --- Text (warm soot scale — all AA-passing against --background) ---
      --soot L=0.603 ≈ 3.0:1 vs background — fails AA normal text.
      Darker derivatives used for readable text; --soot kept for faded/disabled. */
-  --foreground: oklch(0.22 0.022 51.2);          /* ~13:1 — headings, labels */
+  --foreground: oklch(0.22 0.022 51.2); /* ~13:1 — headings, labels */
   --secondary-foreground: oklch(0.36 0.018 51.2); /* ~7:1  — body content */
-  --muted-foreground: oklch(0.49 0.015 51.2);    /* ~4.6:1 — descriptions, hints */
-  --faded-foreground: var(--soot);               /* ~3.0:1 — placeholders, disabled (AA-large) */
+  --muted-foreground: oklch(0.49 0.015 51.2); /* ~4.6:1 — descriptions, hints */
+  --faded-foreground: var(--soot); /* ~3.0:1 — placeholders, disabled (AA-large) */
 
   /* --- Primary accent (deep plum for buttons/interactive) --- */
-  --primary: oklch(0.50 0.10 345.37);
+  --primary: oklch(0.5 0.1 345.37);
   --primary-foreground: var(--background);
 
   /* --- Active / "in-progress" state (plum tints) --- */
   --active-bg: oklch(0.935 0.014 345.37);
-  --active-text: oklch(0.46 0.10 345.37);
+  --active-text: oklch(0.46 0.1 345.37);
   --active-ring: oklch(0.82 0.028 345.37);
 }
 
@@ -61,7 +60,7 @@ h4 {
 
   --foreground: oklch(0.93 0.005 51.2);
   --secondary-foreground: oklch(0.82 0.008 51.2);
-  --muted-foreground: oklch(0.67 0.010 51.2);
+  --muted-foreground: oklch(0.67 0.01 51.2);
   --faded-foreground: oklch(0.52 0.012 51.2);
 
   --primary: oklch(0.72 0.09 345.37);
@@ -99,7 +98,7 @@ h4 {
   * {
     @apply border-border cursor-default;
     scrollbar-width: thin;
-    scrollbar-color: oklch(0.60 0.013 51.2) transparent;
+    scrollbar-color: oklch(0.6 0.013 51.2) transparent;
   }
   body {
     @apply bg-background text-foreground;

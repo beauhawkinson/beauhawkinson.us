@@ -1,5 +1,6 @@
-import { app } from "@/lib/config/app";
 import { DM_Sans, Lora } from "next/font/google";
+
+import { app } from "@/lib/config/app";
 
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";

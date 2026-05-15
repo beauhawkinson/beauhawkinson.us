@@ -17,7 +17,7 @@ const socials: Social[] = [
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/beau-hawkinson-6921bb84/",
+    url: "https://www.linkedin.com/in/beauhawkinson/",
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512">
         <title>LinkedIn</title>
