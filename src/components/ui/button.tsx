@@ -1,8 +1,4 @@
 import { cva } from "class-variance-authority";
-import clsx from "clsx";
-
-import type { VariantProps } from "class-variance-authority";
-import type * as React from "react";
 
 const buttonVariants = cva(
   [
@@ -30,12 +26,12 @@ const buttonVariants = cva(
   },
 );
 
-function Button({
-  className,
-  variant,
-  ...props
-}: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
-  return <button className={clsx(buttonVariants({ variant }), className)} {...props} />;
-}
+// function Button({
+//   className,
+//   variant,
+//   ...props
+// }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
+//   return <button className={clsx(buttonVariants({ variant }), className)} {...props} />;
+// }
 
-export { Button, buttonVariants };
+export { buttonVariants };
