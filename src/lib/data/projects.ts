@@ -31,7 +31,7 @@ const freelanceProjects: ProjectProps[] = [
       "An ecommerce site for a custom motocross apparel brand. Building out the storefront, product catalog, and checkout flow.",
     client: "Porterhouse MX",
     status: "active",
-    links: [],
+    links: [{ name: "code", url: "https://github.com/beauhawkinson/porterhouse-mx" }],
   },
   {
     name: "NEUROally",

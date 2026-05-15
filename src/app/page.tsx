@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import ProjectCard from "@/components/project-card";
+import SectionHeading from "@/components/section-heading";
+import { buttonVariants } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { experience } from "@/lib/data/experiences";
 import {
@@ -12,96 +14,7 @@ import {
   personalProjects,
 } from "@/lib/data/projects";
 import { socials } from "@/lib/data/socials";
-
-import type { ProjectProps } from "@/lib/data/projects";
-
-const ProjectCard = ({
-  project,
-  isFeatured = false,
-}: {
-  project: ProjectProps;
-  isFeatured?: boolean;
-}) => {
-  const { name, description, company, client, date, status, links } = project;
-  const isActive = status === "active";
-
-  return (
-    <li
-      className={
-        isActive
-          ? "grid gap-3 rounded-lg bg-active-bg p-5 ring-1 ring-active-ring transition-colors"
-          : isFeatured
-            ? "grid gap-3 rounded-lg bg-primary/5 p-5"
-            : "grid gap-3 rounded-lg p-5 transition-colors hover:bg-muted/50"
-      }
-    >
-      <div className="grid min-w-0 gap-1.5">
-        <div className="flex flex-wrap items-center gap-2">
-          <b className="text-foreground text-sm">{name}</b>
-          {isActive && (
-            <Tooltip delayDuration={200}>
-              <TooltipTrigger asChild>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
-                  </span>
-                  in progress
-                </span>
-              </TooltipTrigger>
-              <TooltipContent side="top" sideOffset={8}>
-                Currently building this
-              </TooltipContent>
-            </Tooltip>
-          )}
-          {isFeatured && !isActive && (
-            <span className="rounded-full bg-primary/10 px-2 py-0.5 font-medium text-primary text-xs">
-              featured
-            </span>
-          )}
-          {client && <span className="text-faded-foreground text-xs">{client}</span>}
-          {company && !client && <span className="text-faded-foreground text-xs">@ {company}</span>}
-        </div>
-        <p className="text-muted-foreground text-xs leading-5">{description}</p>
-      </div>
-
-      <div className="flex items-center justify-between">
-        {date ? <p className="text-faded-foreground text-xs">{date}</p> : <span />}
-        <ul className="flex items-center gap-2">
-          {links?.map(({ name, url }) =>
-            url ? (
-              <li key={name}>
-                <Button variant={isFeatured ? "primary" : "ghost"} className="h-6 px-2.5 text-xs">
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {name} ↗
-                  </a>
-                </Button>
-              </li>
-            ) : null,
-          )}
-        </ul>
-      </div>
-    </li>
-  );
-};
-
-const SectionHeading = ({
-  title,
-  subtitle,
-  action,
-}: {
-  title: string;
-  subtitle?: string;
-  action?: React.ReactNode;
-}) => (
-  <div className="mb-6 flex items-end justify-between gap-4">
-    <div>
-      <h2 className="font-semibold text-base text-foreground">{title}</h2>
-      {subtitle && <p className="mt-1 text-muted-foreground text-xs">{subtitle}</p>}
-    </div>
-    {action}
-  </div>
-);
+import { formatDuration } from "@/lib/utils/duration";
 
 const HomePage = () => {
   return (
@@ -171,11 +84,14 @@ const HomePage = () => {
                 <p className="text-muted-foreground text-xs">Software Development Agency</p>
               </div>
             </div>
-            <Button variant="outline" className="text-xs">
-              <a href="https://omni.dev/" target="_blank" rel="noopener noreferrer">
-                omni.dev ↗
-              </a>
-            </Button>
+            <a
+              href="https://omni.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              omni.dev ↗
+            </a>
           </div>
 
           <ul className="flex flex-col">
@@ -220,7 +136,7 @@ const HomePage = () => {
               Research and education platforms built with the University of Minnesota
             </p>
           </div>
-          <ul className="grid gap-2">
+          <ul className="grid gap-4">
             {clientProjects.map((project) => (
               <ProjectCard key={project.name} project={project} />
             ))}
@@ -238,18 +154,21 @@ const HomePage = () => {
             </div>
             <Tooltip delayDuration={300}>
               <TooltipTrigger asChild>
-                <Button variant="ghost" className="text-xs">
-                  <a href="https://omni.dev/portfolio" target="_blank" rel="noopener noreferrer">
-                    See all ↗
-                  </a>
-                </Button>
+                <a
+                  href="https://omni.dev/portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({ variant: "ghost" })}
+                >
+                  See all ↗
+                </a>
               </TooltipTrigger>
               <TooltipContent side="left" sideOffset={8}>
                 View full Omni portfolio
               </TooltipContent>
             </Tooltip>
           </div>
-          <ul className="grid gap-2">
+          <ul className="grid gap-4">
             {omniProducts.map((project) => (
               <ProjectCard key={project.name} project={project} />
             ))}
@@ -261,7 +180,7 @@ const HomePage = () => {
       <section className="mb-24">
         <SectionHeading title="Freelance" subtitle="Independent client work outside of Omni" />
 
-        <ul className="grid gap-2">
+        <ul className="grid gap-4">
           {freelanceProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
@@ -272,7 +191,7 @@ const HomePage = () => {
       <section>
         <SectionHeading title="Personal Projects" subtitle="Things I've built outside of Omni" />
 
-        <ul className="grid gap-2">
+        <ul className="grid gap-4">
           {personalProjects.map((project, index) => (
             <ProjectCard key={project.name} project={project} isFeatured={index === 0} />
           ))}
@@ -283,29 +202,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-function formatDuration(startDate: string, endDate?: string): string {
-  const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : new Date();
-
-  let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-
-  // Round up if we're past the day-of-month
-  if (end.getDate() >= start.getDate()) {
-    months += 0;
-  } else {
-    months -= 1;
-  }
-
-  // Clamp to at least 1 month so very short stints don't show "0 mos"
-  months = Math.max(months, 1);
-
-  const years = Math.floor(months / 12);
-  const remainingMonths = months % 12;
-
-  const parts: string[] = [];
-  if (years > 0) parts.push(`${years} yr${years > 1 ? "s" : ""}`);
-  if (remainingMonths > 0) parts.push(`${remainingMonths} mo${remainingMonths > 1 ? "s" : ""}`);
-
-  return parts.join(" ");
-}
