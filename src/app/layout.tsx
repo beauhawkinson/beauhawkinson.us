@@ -1,5 +1,3 @@
-import { DM_Sans, Lora } from "next/font/google";
-
 import { app } from "@/lib/config/app";
 
 import type { Metadata, Viewport } from "next";
@@ -7,18 +5,6 @@ import type { ReactNode } from "react";
 
 import "./global.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
-
-const serif = Lora({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const sans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +55,7 @@ interface Props {
 }
 
 const RootLayout = ({ children }: Readonly<Props>) => (
-  <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+  <html lang="en">
     <body>
       <main>
         <TooltipProvider delayDuration={400} skipDelayDuration={300}>
