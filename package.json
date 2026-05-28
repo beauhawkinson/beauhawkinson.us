@@ -11,9 +11,11 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
+    "@beauhawkinson/plinth": "^1.0.0",
     "@tailwindcss/postcss": "^4.1.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "motion": "^12.40.0",
     "next": "^16.2.5",
     "postcss": "^8.5.6",
     "react": "^19.2.6",
