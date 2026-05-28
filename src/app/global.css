@@ -14,22 +14,30 @@ body {
 :root {
   --radius: 0.375rem;
   --font-size-base: 14px;
-  --background: oklch(0.985 0.0051 145.54);
-  --plum: oklch(0.8817 0.0077 345.37);
-  --soot: oklch(0.603 0.0133 51.2);
-  --purple-water: oklch(0.9291 0.0054 286.29);
-  --surface: var(--background);
-  --muted: var(--purple-water);
-  --border: oklch(0.878 0.007 286.29);
-  --foreground: oklch(0.22 0.022 51.2);
-  --secondary-foreground: oklch(0.36 0.018 51.2);
-  --muted-foreground: oklch(0.49 0.015 51.2);
-  --faded-foreground: var(--soot);
-  --primary: oklch(0.5 0.1 345.37);
-  --primary-foreground: var(--background);
-  --active-bg: oklch(0.935 0.014 345.37);
-  --active-text: oklch(0.46 0.1 345.37);
-  --active-ring: oklch(0.82 0.028 345.37);
+
+  /* primitives */
+  --plum: oklch(0.46 0.16 345.37);         /* rich rose — was near-achromatic */
+  --soot: oklch(0.44 0.022 51.2);          /* warm brown — darkened for AA */
+  --purple-water: oklch(0.92 0.018 286.29); /* soft lavender — more visible */
+
+  /* 60% — white */
+  --background: oklch(1 0 0);
+  --muted: oklch(0.94 0.018 286.29);       /* visible lavender card surface */
+  --border: oklch(0.86 0.012 286.29);      /* visible lavender border */
+
+  /* 30% — type hierarchy (all AA-compliant on white and on --muted) */
+  --foreground: oklch(0.15 0.015 51.2);           /* ~14:1 on white */
+  --secondary-foreground: oklch(0.28 0.018 51.2); /* ~9:1 on white */
+  --muted-foreground: oklch(0.44 0.015 51.2);     /* ~6:1 on white, ~5.5:1 on muted */
+  --faded-foreground: var(--soot);                /* ~6:1 on white, ~5.5:1 on muted */
+
+  /* 10% — rose/plum accent */
+  --primary: oklch(0.46 0.16 345.37);
+  --primary-foreground: oklch(1 0 0);
+  --active-bg: oklch(0.934 0.015 345.37);
+  --active-text: oklch(0.43 0.14 345.37);  /* ~7:1 on active-bg */
+  --active-ring: oklch(0.80 0.036 345.37);
+
   --tracking-tight: -0.015em;
   --tracking-tighter: -0.025em;
   --leading-tight: 1.15;
@@ -38,21 +46,23 @@ body {
 }
 
 .dark {
-  --background: oklch(0.16 0.008 51.2);
-  --muted: oklch(0.22 0.007 51.2);
-  --border: oklch(0.27 0.007 51.2);
-  --foreground: oklch(0.93 0.005 51.2);
-  --secondary-foreground: oklch(0.82 0.008 51.2);
-  --muted-foreground: oklch(0.67 0.01 51.2);
-  --faded-foreground: oklch(0.52 0.012 51.2);
+  --background: oklch(0.12 0.005 51.2);
+  --muted: oklch(0.17 0.005 51.2);
+  --border: oklch(0.24 0.005 51.2);
+  --foreground: oklch(0.95 0.003 51.2);
+  --secondary-foreground: oklch(0.85 0.005 51.2);
+  --muted-foreground: oklch(0.65 0.008 51.2);  /* ~6:1 on dark bg */
+  --faded-foreground: oklch(0.60 0.012 51.2);  /* ~5:1 on dark muted — was 0.52 (fails) */
   --primary: oklch(0.72 0.09 345.37);
-  --primary-foreground: oklch(0.16 0.008 51.2);
-  --active-bg: oklch(0.25 0.016 345.37);
-  --active-text: oklch(0.78 0.08 345.37);
-  --active-ring: oklch(0.36 0.026 345.37);
+  --primary-foreground: oklch(0.12 0.005 51.2);
+  --active-bg: oklch(0.235 0.021 345.37);
+  --active-text: oklch(0.80 0.10 345.37);
+  --active-ring: oklch(0.35 0.032 345.37);
 }
 
 @theme inline {
+  --color-plum: var(--plum);
+  --color-purple-water: var(--purple-water);
   --color-background: var(--background);
   --color-muted: var(--muted);
   --color-border: var(--border);
@@ -73,7 +83,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border cursor-default;
+    @apply border-border;
     scrollbar-width: thin;
     scrollbar-color: oklch(0.6 0.013 51.2) transparent;
   }

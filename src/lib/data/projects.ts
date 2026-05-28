@@ -11,10 +11,19 @@ export interface ProjectProps {
 
 const projects: ProjectProps[] = [
   {
+    name: "Plinth",
+    description:
+      "A React component library for rendering interactive 3D card stacks. Handles the spatial math — perspective, step offsets, face transforms, hover physics — and exposes styling hooks so each face can look however you like. Published on npm as @beauhawkinson/plinth.",
+    status: "active",
+    date: "May 2026",
+    websiteUrl: "https://beau-hawkinson-plinth.vercel.app/",
+    githubUrl: "https://github.com/beauhawkinson/plinth",
+  },
+  {
     name: "April",
     description:
       "A full-stack SaaS boilerplate built on TanStack Start with a focus on developer experience and production-readiness. Features multi-provider authentication (Google, GitHub, Passkeys, Ethereum/SIWE), Stripe billing with plans and trials, a fully functional task management module, and deep UI customization including OKLCH-based theming, sidebar layout variants, font sizing, and pointer preferences — all persisted per user. Built with React 19, Drizzle ORM, Tailwind v4, better-auth, Wagmi, and Bun.",
-    status: "active",
+    date: "April 2026",
     websiteUrl: "https://beauhawkinson-april.vercel.app",
     githubUrl: "https://github.com/beauhawkinson/april",
   },

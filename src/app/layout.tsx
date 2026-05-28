@@ -4,7 +4,6 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
 import "./global.css";
-import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: {
@@ -43,11 +42,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   initialScale: 1,
-  minimumScale: 1,
-  maximumScale: 1,
   width: "device-width",
-  userScalable: false,
-  themeColor: "#f7f8f5",
+  themeColor: "#ffffff",
 };
 
 interface Props {
@@ -57,11 +53,7 @@ interface Props {
 const RootLayout = ({ children }: Readonly<Props>) => (
   <html lang="en">
     <body>
-      <main>
-        <TooltipProvider delayDuration={400} skipDelayDuration={300}>
-          {children}
-        </TooltipProvider>
-      </main>
+      <main>{children}</main>
     </body>
   </html>
 );

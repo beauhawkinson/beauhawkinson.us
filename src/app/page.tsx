@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
+import ArrowUpRight from "@/components/icons/arrow-up-right";
+import { Link } from "@/components/link";
 import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
-import { buttonVariants } from "@/components/ui/button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { clientProjects, omniProducts, projects } from "@/lib/data/projects";
 import { socials } from "@/lib/data/socials";
 import { formatDuration } from "@/lib/utils/duration";
@@ -23,38 +23,22 @@ const HomePage = () => {
             href="https://www.omni.dev"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground underline decoration-faded-foreground underline-offset-4 transition-colors transition-none hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+            className="text-foreground underline decoration-faded-foreground underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
           >
             Omni LLC
           </a>
           .
         </p>
 
-        <ul className="mt-6 flex items-center gap-1">
-          {socials.map(({ name, url, icon }) => {
-            return (
-              <li key={name}>
-                <Tooltip delayDuration={300}>
-                  <TooltipTrigger asChild>
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={name}
-                      className={buttonVariants({ variant: "ghost" })}
-                    >
-                      <span className="text-muted-foreground [&>svg]:h-3.5 [&>svg]:w-3.5">
-                        {icon}
-                      </span>
-                    </a>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" sideOffset={8}>
-                    {name}
-                  </TooltipContent>
-                </Tooltip>
-              </li>
-            );
-          })}
+        <ul className="mt-6 flex items-center gap-4">
+          {socials.map(({ name, url }) => (
+            <li key={name} className="rounded-full">
+              <Link href={url} target="_blank" rel="noopener noreferrer">
+                <span>{name}</span>
+                <ArrowUpRight />
+              </Link>
+            </li>
+          ))}
         </ul>
       </header>
 
@@ -65,7 +49,7 @@ const HomePage = () => {
           href="https://omni.dev/"
           target="_blank"
           rel="noopener noreferrer"
-          className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/50 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
         >
           <Image
             alt="Omni LLC"
