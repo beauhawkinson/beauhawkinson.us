@@ -17,11 +17,12 @@ const HomePage = () => {
   useEffect(() => {
     fetch("/api/views", { method: "POST" })
       .then((r) => r.json())
-      .then((d) => setViews(d.count));
+      .then((d) => {
+        setViews(d.count);
+        // biome-ignore lint/suspicious/noConsole: allow
+        console.log(`👀 ${d.count} people have viewed this page`);
+      });
   }, []);
-
-  console.log(`👀 ${views} people have viewed this page`);
-
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
       <header className="mb-24">
@@ -133,8 +134,6 @@ const HomePage = () => {
           ))}
         </ul>
       </section>
-
-      {views}
     </div>
   );
 };

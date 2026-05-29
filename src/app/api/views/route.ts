@@ -10,7 +10,12 @@ export async function POST(req: NextRequest) {
   const ip = req.headers.get("x-forwarded-for");
   const blocked = process.env.BLOCKED_IPS?.split(",") ?? [];
   const isDev = process.env.NODE_ENV === "development";
-  if (isDev || blocked.includes(ip ?? "")) return NextResponse.json({ ok: true });
-  const count = await redis.hincrby("pageviews", "website", 1);
+  const isMe = isDev || blocked.includes(ip ?? "");
+
+  if (!isMe) {
+    await redis.hincrby("pageviews", "website", 1);
+  }
+
+  const count = await redis.hget("pageviews", "website");
   return NextResponse.json({ count });
 }

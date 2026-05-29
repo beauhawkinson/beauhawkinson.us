@@ -21,7 +21,8 @@ export const redis = {
         headers: { Authorization: `Bearer ${restToken()}` },
       });
       const data = (await res.json()) as { result?: unknown };
-      return typeof data.result === "number" ? data.result : null;
+      const val = Number(data.result);
+      return Number.isNaN(val) ? null : val;
     } catch (err) {
       console.error("Redis hget error:", err);
       return null;
