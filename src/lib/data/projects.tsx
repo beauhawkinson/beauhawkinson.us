@@ -26,7 +26,7 @@ const projects: ProjectProps[] = [
       "A React component library for rendering interactive 3D card stacks. Handles the spatial math — perspective, step offsets, face transforms, hover physics — and exposes styling hooks so each face can look however you like. Published on npm as @beauhawkinson/plinth.",
     status: "active",
     date: "May 2026",
-    websiteUrl: "https://beau-hawkinson-plinth.vercel.app/",
+    websiteUrl: "https://beauhawkinson-plinth.vercel.app/",
     githubUrl: "https://github.com/beauhawkinson/plinth",
     logo: plinthLogo,
     content: (

@@ -15,7 +15,7 @@ const HomePage = () => {
   const [views, setViews] = useState<number>(0);
 
   useEffect(() => {
-    fetch("/api/pageviews", { method: "POST" })
+    fetch("/api/views", { method: "POST" })
       .then((r) => r.json())
       .then((d) => setViews(d.count));
   }, []);
