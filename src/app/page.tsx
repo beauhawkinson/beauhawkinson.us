@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 import ArrowUpRight from "@/components/icons/arrow-up-right";
 import { Link } from "@/components/link";
@@ -11,6 +12,14 @@ import { socials } from "@/lib/data/socials";
 import { formatDuration } from "@/lib/utils/duration";
 
 const HomePage = () => {
+  const [views, setViews] = useState<number>(0);
+
+  useEffect(() => {
+    fetch("/api/pageviews", { method: "POST" })
+      .then((r) => r.json())
+      .then((d) => setViews(d.count));
+  }, []);
+
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
       <header className="mb-24">
@@ -20,9 +29,10 @@ const HomePage = () => {
         <p className="mt-6 text-muted-foreground text-sm leading-relaxed">
           Building products with React, TypeScript, and modern web tooling. Currently at{" "}
           <a
-            href="https://www.omni.dev"
+            href="https://omni.dev/"
             target="_blank"
             rel="noopener noreferrer"
+            // onClick={() => track("link:omni-text")}
             className="text-foreground underline decoration-faded-foreground underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
           >
             Omni LLC
@@ -33,7 +43,14 @@ const HomePage = () => {
         <ul className="mt-6 flex items-center gap-4">
           {socials.map(({ name, url }) => (
             <li key={name} className="rounded-full">
-              <Link href={url} target="_blank" rel="noopener noreferrer">
+              <Link
+                href={url}
+                {...(!url.startsWith("mailto:") && {
+                  target: "_blank",
+                  rel: "noopener noreferrer",
+                })}
+                // onClick={() => track(`social:${name.toLowerCase()}`)}
+              >
                 <span>{name}</span>
                 <ArrowUpRight />
               </Link>
@@ -49,6 +66,7 @@ const HomePage = () => {
           href="https://omni.dev/"
           target="_blank"
           rel="noopener noreferrer"
+          // onClick={() => track("link:omni")}
           className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
         >
           <Image
@@ -113,6 +131,8 @@ const HomePage = () => {
           ))}
         </ul>
       </section>
+
+      {views}
     </div>
   );
 };
