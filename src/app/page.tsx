@@ -20,6 +20,8 @@ const HomePage = () => {
       .then((d) => setViews(d.count));
   }, []);
 
+  console.log(`👀 ${views} people have viewed this page`);
+
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
       <header className="mb-24">
