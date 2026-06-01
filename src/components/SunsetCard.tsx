@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { getSunsetCursorUrl } from "@/app/utils/cursor";
+
 import type { ProjectProps } from "@/lib/data/projects";
 
 const SunsetCard = ({ project }: { project: ProjectProps }) => {
@@ -14,7 +15,7 @@ const SunsetCard = ({ project }: { project: ProjectProps }) => {
 
   return (
     <li
-      className="relative grid gap-1.5 rounded-xl border-2 border-dashed border-faded-foreground/40 p-5 select-none opacity-60 transition-opacity hover:opacity-70"
+      className="relative grid gap-1.5 rounded-xl p-5 transition-colors hover:bg-muted/60 select-none"
       style={cursorStyle}
     >
       <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:items-center">
@@ -37,9 +38,7 @@ const SunsetCard = ({ project }: { project: ProjectProps }) => {
 
         <div className="flex flex-wrap items-center gap-2">
           {client && <span className="text-faded-foreground text-xs">{client}</span>}
-          {company && !client && (
-            <span className="text-faded-foreground text-xs">@ {company}</span>
-          )}
+          {company && !client && <span className="text-faded-foreground text-xs">@ {company}</span>}
         </div>
 
         {date && <span className="text-faded-foreground text-xs">{date}</span>}
