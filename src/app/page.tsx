@@ -44,7 +44,7 @@ const HomePage = () => {
           .
         </p>
 
-        <ul className="mt-6 flex items-center gap-4">
+        <ul className="mt-6 flex flex-wrap items-center gap-4">
           {socials.map(({ name, url }) => (
             <li key={name} className="rounded-full">
               <Link

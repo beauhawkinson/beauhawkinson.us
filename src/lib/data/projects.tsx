@@ -1,8 +1,7 @@
-import { Plinth } from "@beauhawkinson/plinth";
-
 import aprilLogo from "@/assets/april.png";
 import neuroallyLogo from "@/assets/neuroally.png";
 import plinthLogo from "@/assets/plinth.png";
+import PlinthContent from "@/components/content/plinth";
 
 import type { StaticImageData } from "next/image";
 
@@ -29,16 +28,7 @@ const projects: ProjectProps[] = [
     websiteUrl: "https://beauhawkinson-plinth.vercel.app/",
     githubUrl: "https://github.com/beauhawkinson/plinth",
     logo: plinthLogo,
-    content: (
-      <Plinth
-        count={7}
-        cardHeight={120}
-        cardWidth={284}
-        faceStyles={{
-          front: "border-0",
-        }}
-      />
-    ),
+    content: <PlinthContent />,
   },
   {
     name: "April",
