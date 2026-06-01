@@ -25,7 +25,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
+    <div className="mx-auto min-h-screen max-w-2xl px-4 py-20">
       <header className="mb-24">
         <h1 className="font-medium text-foreground text-xl">Beau Hawkinson</h1>
         <p className="mt-1 text-secondary-foreground text-sm">Software Engineer</p>
