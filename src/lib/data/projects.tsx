@@ -75,7 +75,7 @@ const projects: ProjectProps[] = [
   {
     name: "Freeride Indoor",
     description:
-      "An indoor mountain biking park experience platform. Managed bookings, trail information, and community features for indoor MTB enthusiasts.",
+      "An early-stage landing page to build community support for a year-round indoor mountain biking facility in Minnesota. Targeted outreach to bikers, investors, partners, and trail builders to gather feedback and resources. Featured park layout mockups, detailed information on partnership opportunities, and a contact form to collect inquiries from stakeholders interested in shaping a weatherproof MTB destination.",
     client: "Freeride MN",
     date: "2024–2026",
     status: "sunset",
