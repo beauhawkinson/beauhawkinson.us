@@ -44,7 +44,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
                 style={{ cursor: getProgressCursorUrl() }}
               >
-                <span className="relative flex h-1.5 w-1.5">
+                <span className="relative flex h-1.5 w-1.5 pointer-events-none">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
                 </span>
