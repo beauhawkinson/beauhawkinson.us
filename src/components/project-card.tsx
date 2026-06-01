@@ -56,7 +56,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2 py-0.5 font-medium text-amber-900 text-xs dark:bg-amber-950/50 dark:text-amber-100"
                 style={{ cursor: getSunsetCursorUrl() }}
               >
-                <span className="text-lg">🌅</span>
+                <span>🌅</span>
                 sunset
               </span>
             )}
