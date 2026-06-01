@@ -22,7 +22,6 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="absolute inset-0 rounded-xl focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-            style={isActive ? { cursor: getProgressCursorUrl() } : undefined}
           >
             <span className="sr-only">Visit {name}</span>
           </a>
@@ -42,7 +41,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
 
             {isActive && (
               <span
-                className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
+                className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs pointer-events-auto"
                 style={{ cursor: getProgressCursorUrl() }}
               >
                 <span className="pointer-events-none relative flex h-1.5 w-1.5">
