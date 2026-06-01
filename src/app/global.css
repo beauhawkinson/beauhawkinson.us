@@ -51,8 +51,8 @@ body {
   --border: oklch(0.24 0.005 51.2);
   --foreground: oklch(0.95 0.003 51.2);
   --secondary-foreground: oklch(0.85 0.005 51.2);
-  --muted-foreground: oklch(0.65 0.008 51.2); /* ~6:1 on dark bg */
-  --faded-foreground: oklch(0.6 0.012 51.2); /* ~5:1 on dark muted — was 0.52 (fails) */
+  --muted-foreground: oklch(0.78 0.008 51.2); /* WCAG AA on dark bg */
+  --faded-foreground: oklch(0.77 0.012 51.2); /* WCAG AA on dark bg */
   --primary: oklch(0.72 0.09 345.37);
   --primary-foreground: oklch(0.12 0.005 51.2);
   --active-bg: oklch(0.235 0.021 345.37);
