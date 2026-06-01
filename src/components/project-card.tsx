@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { getSunsetCursorUrl } from "@/app/utils/cursor";
+
 import type { ProjectProps } from "@/lib/data/projects";
 
 const ProjectCard = ({ project }: { project: ProjectProps }) => {
@@ -12,7 +13,9 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
 
   return (
     <>
-      <li className={`relative grid gap-1.5 rounded-xl p-5 transition-colors ${!isSunset && "hover:bg-muted/60"}`}>
+      <li
+        className={`relative grid gap-1.5 rounded-xl p-5 transition-colors ${!isSunset && "hover:bg-muted/60"} ${isSunset && "select-none"}`}
+      >
         {websiteUrl && !isSunset && (
           <a
             href={websiteUrl}
