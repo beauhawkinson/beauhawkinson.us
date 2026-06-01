@@ -41,7 +41,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
 
             {isActive && (
               <span
-                className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs transition-all hover:scale-110"
+                className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
                 style={{ cursor: getProgressCursorUrl() }}
               >
                 <span className="relative flex h-1.5 w-1.5">
