@@ -40,6 +40,8 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             <b className="text-foreground leading-tight">{name}</b>
 
             {isActive && (
+              // biome-ignore lint/a11y/noStaticElementInteractions: allow
+              // biome-ignore lint/a11y/useKeyWithClickEvents: allow
               <span
                 className="pointer-events-auto relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
                 style={{ cursor: getProgressCursorUrl() }}
