@@ -22,6 +22,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="absolute inset-0 rounded-xl focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+            style={isActive ? { cursor: getProgressCursorUrl() } : undefined}
           >
             <span className="sr-only">Visit {name}</span>
           </a>
@@ -44,7 +45,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
                 style={{ cursor: getProgressCursorUrl() }}
               >
-                <span className="relative flex h-1.5 w-1.5 pointer-events-none">
+                <span className="pointer-events-none relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
                 </span>
@@ -56,7 +57,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           <div className="flex flex-wrap items-center gap-2">
             {isSunset && (
               <span
-                className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2 py-0.5 font-medium text-amber-900 text-xs dark:bg-amber-950/50 dark:text-amber-100"
+                className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2 py-0.5 font-medium text-amber-900 text-xs"
                 style={{ cursor: getSunsetCursorUrl() }}
               >
                 <span>🌅</span>
