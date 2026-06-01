@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { getProgressCursorUrl, getSunsetCursorUrl } from "@/app/utils/cursor";
+import { getProgressCursorUrl, getSunsetCursorUrl } from "@/lib/utils/cursor";
 
 import type { ProjectProps } from "@/lib/data/projects";
 
@@ -41,15 +41,11 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
 
             {isActive && (
               <span
-                className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs pointer-events-auto"
+                className="pointer-events-auto relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
                 style={{ cursor: getProgressCursorUrl() }}
-                onClick={() => websiteUrl && window.open(websiteUrl, "_blank")}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if ((e.key === "Enter" || e.key === " ") && websiteUrl) {
-                    window.open(websiteUrl, "_blank");
-                  }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  websiteUrl && window.open(websiteUrl, "_blank");
                 }}
               >
                 <span className="pointer-events-none relative flex h-1.5 w-1.5">
