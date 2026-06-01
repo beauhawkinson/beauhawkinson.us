@@ -35,10 +35,8 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
               />
             )}
 
-            <b className="text-foreground">{name}</b>
-          </div>
+            <b className="text-foreground leading-tight">{name}</b>
 
-          <div className="flex flex-wrap items-center gap-2">
             {isActive && (
               <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
                 <span className="relative flex h-1.5 w-1.5">
@@ -48,7 +46,9 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 in progress
               </span>
             )}
+          </div>
 
+          <div className="flex flex-wrap items-center gap-2">
             {isSunset && (
               <span className="inline-flex items-center gap-1.5 rounded-full font-medium text-amber-700 text-xs dark:bg-amber-950/40 dark:text-amber-200">
                 <span className="text-lg">🌅</span>
@@ -57,7 +57,9 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             )}
 
             {client && <span className="text-faded-foreground text-xs">{client}</span>}
-            {company && !client && <span className="text-faded-foreground text-xs">@ {company}</span>}
+            {company && !client && (
+              <span className="text-faded-foreground text-xs">@ {company}</span>
+            )}
             {date && <span className="text-faded-foreground text-xs">{date}</span>}
           </div>
         </div>
