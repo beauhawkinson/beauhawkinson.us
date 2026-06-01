@@ -25,37 +25,41 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           </a>
         )}
 
-        <div className="flex flex-wrap items-center gap-2 md:gap-3">
-          {logo && (
-            <Image
-              src={logo}
-              alt={`${name} logo`}
-              className="size-4 shrink-0 rounded-sm object-contain"
-            />
-          )}
+        <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:items-center">
+          <div className="flex items-center gap-2">
+            {logo && (
+              <Image
+                src={logo}
+                alt={`${name} logo`}
+                className="size-4 shrink-0 rounded-sm object-contain"
+              />
+            )}
 
-          <b className="text-foreground">{name}</b>
+            <b className="text-foreground">{name}</b>
+          </div>
 
-          {isActive && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
+          <div className="flex flex-wrap items-center gap-2">
+            {isActive && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
+                </span>
+                in progress
               </span>
-              in progress
-            </span>
-          )}
+            )}
 
-          {isSunset && (
-            <span className="inline-flex items-center gap-1.5 rounded-full font-medium text-amber-700 text-xs dark:bg-amber-950/40 dark:text-amber-200">
-              <span className="text-lg">🌅</span>
-              sunset
-            </span>
-          )}
+            {isSunset && (
+              <span className="inline-flex items-center gap-1.5 rounded-full font-medium text-amber-700 text-xs dark:bg-amber-950/40 dark:text-amber-200">
+                <span className="text-lg">🌅</span>
+                sunset
+              </span>
+            )}
 
-          {client && <span className="text-faded-foreground text-xs">{client}</span>}
-          {company && !client && <span className="text-faded-foreground text-xs">@ {company}</span>}
-          {date && <span className="text-faded-foreground text-xs">{date}</span>}
+            {client && <span className="text-faded-foreground text-xs">{client}</span>}
+            {company && !client && <span className="text-faded-foreground text-xs">@ {company}</span>}
+            {date && <span className="text-faded-foreground text-xs">{date}</span>}
+          </div>
         </div>
 
         <p className="text-muted-foreground text-xs leading-relaxed">{description}</p>
