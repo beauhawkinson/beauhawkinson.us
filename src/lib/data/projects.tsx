@@ -67,7 +67,7 @@ const projects: ProjectProps[] = [
   },
   {
     name: "Freeride MN",
-    description: "A community-driven MTB platform for Minnesota riders. Consolidated events, trails, blog posts, and forums to build the local riding community.",
+    description: "A comprehensive community-driven MTB platform for Minnesota riders built with Next.js and Sanity CMS. Featured a consolidated hub for local riding experiences including event calendars, trail databases with integrated mapping, user-contributed blog posts, and community forums. Included multi-threaded discussions, real-time event management, and user authentication via Supabase. Built to strengthen Minnesota's mountain biking culture by connecting riders, sharing knowledge, and organizing local experiences.",
     client: "Freeride MN",
     date: "Oct 2023 – Jun 2026",
     status: "sunset",
