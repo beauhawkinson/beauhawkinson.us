@@ -2,16 +2,18 @@
 
 import Image from "next/image";
 
+import { getSunsetCursorUrl } from "@/app/utils/cursor";
 import type { ProjectProps } from "@/lib/data/projects";
 
 const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const { name, description, company, client, date, status, websiteUrl, logo, content } = project;
   const isActive = status === "active";
+  const isSunset = status === "sunset";
 
   return (
     <>
-      <li className="relative grid gap-1.5 rounded-xl p-5 transition-colors hover:bg-muted/60">
-        {websiteUrl && (
+      <li className={`relative grid gap-1.5 rounded-xl p-5 transition-colors ${!isSunset && "hover:bg-muted/60"}`}>
+        {websiteUrl && !isSunset && (
           <a
             href={websiteUrl}
             target="_blank"
@@ -46,6 +48,16 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
+            {isSunset && (
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2 py-0.5 font-medium text-amber-900 text-xs dark:bg-amber-950/50 dark:text-amber-100"
+                style={{ cursor: getSunsetCursorUrl() }}
+              >
+                <span className="text-lg">🌅</span>
+                sunset
+              </span>
+            )}
+
             {client && <span className="text-faded-foreground text-xs">{client}</span>}
             {company && !client && (
               <span className="text-faded-foreground text-xs">@ {company}</span>

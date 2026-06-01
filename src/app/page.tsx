@@ -7,7 +7,6 @@ import ArrowUpRight from "@/components/icons/arrow-up-right";
 import { Link } from "@/components/link";
 import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
-import SunsetCard from "@/components/SunsetCard";
 import { clientProjects, omniProducts, projects } from "@/lib/data/projects";
 import { socials } from "@/lib/data/socials";
 import { formatDuration } from "@/lib/utils/duration";
@@ -132,11 +131,7 @@ const HomePage = () => {
 
         <ul className="grid gap-4">
           {projects.map((project) => (
-            project.status === "sunset" ? (
-              <SunsetCard key={project.name} project={project} />
-            ) : (
-              <ProjectCard key={project.name} project={project} />
-            )
+            <ProjectCard key={project.name} project={project} />
           ))}
         </ul>
       </section>
