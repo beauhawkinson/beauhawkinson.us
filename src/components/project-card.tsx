@@ -43,6 +43,14 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
               <span
                 className="relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs pointer-events-auto"
                 style={{ cursor: getProgressCursorUrl() }}
+                onClick={() => websiteUrl && window.open(websiteUrl, "_blank")}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if ((e.key === "Enter" || e.key === " ") && websiteUrl) {
+                    window.open(websiteUrl, "_blank");
+                  }
+                }}
               >
                 <span className="pointer-events-none relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
