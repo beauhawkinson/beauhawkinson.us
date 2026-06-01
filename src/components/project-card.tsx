@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { getSunsetCursorUrl } from "@/app/utils/cursor";
+import { getProgressCursorUrl, getSunsetCursorUrl } from "@/app/utils/cursor";
 
 import type { ProjectProps } from "@/lib/data/projects";
 
@@ -40,7 +40,10 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             <b className="text-foreground leading-tight">{name}</b>
 
             {isActive && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
+                style={{ cursor: getProgressCursorUrl() }}
+              >
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-active-text opacity-75" />
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />

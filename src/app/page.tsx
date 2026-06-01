@@ -36,7 +36,6 @@ const HomePage = () => {
             href="https://omni.dev/"
             target="_blank"
             rel="noopener noreferrer"
-            // onClick={() => track("link:omni-text")}
             className="text-foreground underline decoration-faded-foreground underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
           >
             Omni LLC
@@ -53,7 +52,6 @@ const HomePage = () => {
                   target: "_blank",
                   rel: "noopener noreferrer",
                 })}
-                // onClick={() => track(`social:${name.toLowerCase()}`)}
               >
                 <span>{name}</span>
                 <ArrowUpRight />
@@ -70,7 +68,6 @@ const HomePage = () => {
           href="https://omni.dev/"
           target="_blank"
           rel="noopener noreferrer"
-          // onClick={() => track("link:omni")}
           className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
         >
           <Image
