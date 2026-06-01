@@ -23,7 +23,6 @@ const projects: ProjectProps[] = [
     name: "Plinth",
     description:
       "A React component library for rendering interactive 3D card stacks. Handles the spatial math — perspective, step offsets, face transforms, hover physics — and exposes styling hooks so each face can look however you like. Published on npm as @beauhawkinson/plinth.",
-    status: "active",
     date: "May 2026",
     websiteUrl: "https://beauhawkinson-plinth.vercel.app/",
     githubUrl: "https://github.com/beauhawkinson/plinth",
@@ -67,14 +66,16 @@ const projects: ProjectProps[] = [
   },
   {
     name: "Freeride MN",
-    description: "A comprehensive community-driven MTB platform for Minnesota riders built with Next.js and Sanity CMS. Featured a consolidated hub for local riding experiences including event calendars, trail databases with integrated mapping, user-contributed blog posts, and community forums. Included multi-threaded discussions, real-time event management, and user authentication via Supabase. Built to strengthen Minnesota's mountain biking culture by connecting riders, sharing knowledge, and organizing local experiences.",
+    description:
+      "A comprehensive community-driven MTB platform for Minnesota riders built with Next.js and Sanity CMS. Featured a consolidated hub for local riding experiences including event calendars, trail databases with integrated mapping, user-contributed blog posts, and community forums. Included multi-threaded discussions, real-time event management, and user authentication via Supabase. Built to strengthen Minnesota's mountain biking culture by connecting riders, sharing knowledge, and organizing local experiences.",
     client: "Freeride MN",
     date: "Oct 2023 – Jun 2026",
     status: "sunset",
   },
   {
     name: "Freeride Indoor",
-    description: "An indoor mountain biking park experience platform. Managed bookings, trail information, and community features for indoor MTB enthusiasts.",
+    description:
+      "An indoor mountain biking park experience platform. Managed bookings, trail information, and community features for indoor MTB enthusiasts.",
     client: "Freeride MN",
     date: "2024 – Jun 2026",
     status: "sunset",
