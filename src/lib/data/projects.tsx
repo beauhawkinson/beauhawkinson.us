@@ -11,8 +11,8 @@ export interface ProjectProps {
   company?: string;
   client?: string;
   date?: string;
-  status?: "active" | "completed";
-  websiteUrl: string;
+  status?: "active" | "completed" | "sunset";
+  websiteUrl?: string;
   githubUrl?: string;
   logo?: StaticImageData;
   content?: React.ReactNode;
@@ -65,12 +65,20 @@ const projects: ProjectProps[] = [
     websiteUrl: "https://chisagohardware.com/",
     githubUrl: "https://github.com/Twonarly1/chisago-hardware",
   },
-  // {
-  //   name: "Freeride MN",
-  //   description: "Consolidating MN MTB experiences. Events, trails, blog posts, forums.",
-  //   date: "Oct, 2023",
-  //   websiteUrl: "https://www.freeridemn.com/",
-  // },
+  {
+    name: "Freeride MN",
+    description: "A community-driven MTB platform for Minnesota riders. Consolidated events, trails, blog posts, and forums to build the local riding community.",
+    client: "Freeride MN",
+    date: "Oct 2023 – Jun 2026",
+    status: "sunset",
+  },
+  {
+    name: "Freeride Indoor",
+    description: "An indoor mountain biking park experience platform. Managed bookings, trail information, and community features for indoor MTB enthusiasts.",
+    client: "Freeride MN",
+    date: "2024 – Jun 2026",
+    status: "sunset",
+  },
 ];
 
 const clientProjects: ProjectProps[] = [

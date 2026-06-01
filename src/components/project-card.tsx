@@ -7,18 +7,23 @@ import type { ProjectProps } from "@/lib/data/projects";
 const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const { name, description, company, client, date, status, websiteUrl, logo, content } = project;
   const isActive = status === "active";
+  const isSunset = status === "sunset";
 
   return (
     <>
-      <li className="relative grid gap-1.5 rounded-xl p-5 transition-colors hover:bg-muted/60">
-        <a
-          href={websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-0 rounded-xl focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-        >
-          <span className="sr-only">Visit {name}</span>
-        </a>
+      <li
+        className={`relative grid gap-1.5 rounded-xl p-5 transition-colors ${!isSunset && "hover:bg-muted/60"} ${isSunset && "select-none"}`}
+      >
+        {websiteUrl && !isSunset && (
+          <a
+            href={websiteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 rounded-xl focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          >
+            <span className="sr-only">Visit {name}</span>
+          </a>
+        )}
 
         <div className="flex flex-wrap items-center gap-2">
           {logo && (
@@ -38,6 +43,13 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-active-text" />
               </span>
               in progress
+            </span>
+          )}
+
+          {isSunset && (
+            <span className="inline-flex items-center gap-1.5 rounded-full font-medium text-amber-700 text-xs dark:bg-amber-950/40 dark:text-amber-200">
+              <span className="text-lg">🌅</span>
+              sunset
             </span>
           )}
 
