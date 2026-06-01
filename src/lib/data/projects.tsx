@@ -18,7 +18,7 @@ export interface ProjectProps {
   content?: React.ReactNode;
 }
 
-const projects: ProjectProps[] = [
+const personalProjects: ProjectProps[] = [
   {
     name: "Plinth",
     description:
@@ -38,6 +38,9 @@ const projects: ProjectProps[] = [
     githubUrl: "https://github.com/beauhawkinson/april",
     logo: aprilLogo,
   },
+];
+
+const freelanceProjects: ProjectProps[] = [
   {
     name: "Porterhouse MX",
     description:
@@ -120,4 +123,4 @@ const omniProducts: ProjectProps[] = [
   },
 ];
 
-export { clientProjects, omniProducts, projects };
+export { clientProjects, freelanceProjects, omniProducts, personalProjects };

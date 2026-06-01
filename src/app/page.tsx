@@ -7,7 +7,12 @@ import ArrowUpRight from "@/components/icons/arrow-up-right";
 import { Link } from "@/components/link";
 import ProjectCard from "@/components/project-card";
 import SectionHeading from "@/components/section-heading";
-import { clientProjects, omniProducts, projects } from "@/lib/data/projects";
+import {
+  clientProjects,
+  freelanceProjects,
+  omniProducts,
+  personalProjects,
+} from "@/lib/data/projects";
 import { socials } from "@/lib/data/socials";
 import { formatDuration } from "@/lib/utils/duration";
 
@@ -62,72 +67,85 @@ const HomePage = () => {
       </header>
 
       <section className="mb-24">
-        <SectionHeading title="Current" />
+        <SectionHeading title="Client Projects" />
 
-        <a
-          href="https://omni.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
-        >
-          <Image
-            alt="Omni LLC"
-            src="/omni.jpeg"
-            height={200}
-            width={200}
-            className="h-9 w-9 rounded-md object-cover"
-          />
-          <div>
-            <b className="text-foreground">
-              Omni LLC
-              <span className="ml-2 font-normal text-faded-foreground text-xs">
-                {formatDuration("2024-08-01", "")}
-              </span>
-            </b>
-            <p className="text-muted-foreground text-xs">Software Development Agency</p>
-          </div>
-        </a>
-
-        {/* Client subsection */}
+        {/* Omni subsection */}
         <div className="mb-10">
-          <div className="mb-4 ml-2">
-            <h3 className="font-medium text-foreground">Client Work</h3>
-            <p className="mt-0.5 text-muted-foreground text-xs">
-              Research and education platforms built with the University of Minnesota
-            </p>
-          </div>
-
-          <ul className="grid gap-4">
-            {clientProjects.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </ul>
-        </div>
-
-        {/* In-house subsection */}
-        <div>
-          <div className="mb-4 ml-2 flex items-end justify-between gap-4">
+          <a
+            href="https://omni.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-10 flex w-full items-center gap-3 rounded-xl p-5 transition-colors hover:bg-muted/60 focus:outline-none focus-visible:ring-1 focus-visible:ring-primary"
+          >
+            <Image
+              alt="Omni LLC"
+              src="/omni.jpeg"
+              height={200}
+              width={200}
+              className="h-9 w-9 rounded-md object-cover"
+            />
             <div>
-              <h3 className="font-medium text-foreground">In-house Products</h3>
+              <b className="text-foreground">
+                Omni LLC
+                <span className="ml-2 font-normal text-faded-foreground text-xs">
+                  {formatDuration("2024-08-01", "")}
+                </span>
+              </b>
+              <p className="text-muted-foreground text-xs">Software Development Agency</p>
+            </div>
+          </a>
+
+          {/* Omni Client Work subsection */}
+          <div className="mb-10">
+            <div className="mb-4 ml-2">
+              <h3 className="font-medium text-foreground">Client Work</h3>
               <p className="mt-0.5 text-muted-foreground text-xs">
-                Open-source products built by Omni
+                Research and education platforms built with the University of Minnesota
               </p>
             </div>
+
+            <ul className="grid gap-4">
+              {clientProjects.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </ul>
           </div>
-          <ul className="grid gap-4">
-            {omniProducts.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </ul>
+
+          {/* Omni In-house subsection */}
+          <div>
+            <div className="mb-4 ml-2 flex items-end justify-between gap-4">
+              <div>
+                <h3 className="font-medium text-foreground">In-house Products</h3>
+                <p className="mt-0.5 text-muted-foreground text-xs">
+                  Open-source products built by Omni
+                </p>
+              </div>
+            </div>
+            <ul className="grid gap-4">
+              {omniProducts.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </ul>
+          </div>
         </div>
+        {/* Freelance subsection */}
       </section>
 
-      {/* FREELANCE */}
       <section className="mb-24">
-        <SectionHeading title="Projects" subtitle="Freelance work and personal projects" />
+        <SectionHeading title="Freelance Projects" />
 
         <ul className="grid gap-4">
-          {projects.map((project) => (
+          {freelanceProjects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-24">
+        <SectionHeading title="Personal Projects" />
+
+        <ul className="grid gap-4">
+          {personalProjects.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
         </ul>
