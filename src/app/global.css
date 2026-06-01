@@ -100,5 +100,7 @@ body {
 }
 
 .sunset-project {
-  cursor: url('/cursors/sunset.png') 16 16, no-drop;
+  cursor:
+    url("/cursors/sunset.png") 16 16,
+    no-drop;
 }

@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 
-import { getProgressCursorUrl, getSunsetCursorUrl } from "@/lib/utils/cursor";
-
 import type { ProjectProps } from "@/lib/data/projects";
+
+const SUNSET_CURSOR = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="16" y="20" font-size="24" text-anchor="middle" dominant-baseline="middle">🌅</text></svg>') 16 16, auto`;
+
+const PROGRESS_CURSOR = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="16" y="20" font-size="24" text-anchor="middle" dominant-baseline="middle">🚀</text></svg>') 16 16, auto`;
 
 const ProjectCard = ({ project }: { project: ProjectProps }) => {
   const { name, description, company, client, date, status, websiteUrl, logo, content } = project;
@@ -44,7 +46,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
               // biome-ignore lint/a11y/useKeyWithClickEvents: allow
               <span
                 className="pointer-events-auto relative z-10 inline-flex items-center gap-1.5 rounded-full bg-active-bg px-2 py-0.5 font-medium text-active-text text-xs"
-                style={{ cursor: getProgressCursorUrl() }}
+                style={{ cursor: PROGRESS_CURSOR }}
                 onClick={(e) => {
                   e.stopPropagation();
                   websiteUrl && window.open(websiteUrl, "_blank");
@@ -63,7 +65,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
             {isSunset && (
               <span
                 className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2 py-0.5 font-medium text-amber-900 text-xs"
-                style={{ cursor: getSunsetCursorUrl() }}
+                style={{ cursor: SUNSET_CURSOR }}
               >
                 <span>🌅</span>
                 sunset
