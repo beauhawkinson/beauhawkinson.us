@@ -12,7 +12,7 @@ import { socials } from "@/lib/data/socials";
 import { formatDuration } from "@/lib/utils/duration";
 
 const HomePage = () => {
-  const [views, setViews] = useState<number>(0);
+  const [_, setViews] = useState<number>(0);
 
   useEffect(() => {
     fetch("/api/views", { method: "POST" })
@@ -23,6 +23,7 @@ const HomePage = () => {
         console.log(`👀 ${d.count} people have viewed this page`);
       });
   }, []);
+
   return (
     <div className="mx-auto min-h-screen max-w-2xl px-6 py-20">
       <header className="mb-24">

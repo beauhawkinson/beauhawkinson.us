@@ -32,7 +32,7 @@ const projects: ProjectProps[] = [
     content: (
       <Plinth
         count={7}
-        cardHeight={80}
+        cardHeight={120}
         cardWidth={284}
         faceStyles={{
           front: "border-0",
@@ -67,17 +67,19 @@ const projects: ProjectProps[] = [
     websiteUrl: "https://neuroally.app/",
     logo: neuroallyLogo,
   },
+  {
+    name: "Chisago Hardware",
+    description:
+      "A full-stack business website for Chisago Hardware & Just Ask Rental, a local hardware store established in 1975. Features a live open/closed status indicator, equipment rental catalog with 229+ items across departments, a bento-grid services section with animated modals, product showcases for grilling and pet food brands, a photo gallery, and hours & directions. Built with TanStack Start, React 19, Drizzle ORM, Tailwind v4, and Bun backed by PostgreSQL.",
+    date: "January 2023",
+    websiteUrl: "https://chisagohardware.com/",
+    githubUrl: "https://github.com/Twonarly1/chisago-hardware",
+  },
   // {
   //   name: "Freeride MN",
   //   description: "Consolidating MN MTB experiences. Events, trails, blog posts, forums.",
   //   date: "Oct, 2023",
   //   websiteUrl: "https://www.freeridemn.com/",
-  // },
-  // {
-  //   name: "Chisago Hardware",
-  //   description: "Build and design the Chisago Hardware website.",
-  //   date: "Jan, 2023",
-  //   websiteUrl: "https://chisagohardware.com/",
   // },
 ];
 
@@ -108,7 +110,6 @@ const omniProducts: ProjectProps[] = [
     company: "Omni",
     websiteUrl: "https://runa.omni.dev/",
     githubUrl: "https://github.com/omnidotdev/runa",
-    // logo: runaLogo,
   },
   {
     name: "Backfeed",
@@ -117,7 +118,6 @@ const omniProducts: ProjectProps[] = [
     company: "Omni",
     websiteUrl: "https://backfeed.omni.dev/",
     githubUrl: "https://github.com/omnidotdev/backfeed",
-    // logo: backfeedLogo,
   },
 ];
 
