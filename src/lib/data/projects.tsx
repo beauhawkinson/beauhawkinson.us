@@ -1,4 +1,5 @@
 import aprilLogo from "@/assets/april.png";
+import clayWeddingLogo from "@/assets/clay-wedding.png";
 import neuroallyLogo from "@/assets/neuroally.png";
 import plinthLogo from "@/assets/plinth.png";
 import PlinthContent from "@/components/content/plinth";
@@ -37,6 +38,15 @@ const personalProjects: ProjectProps[] = [
     websiteUrl: "https://beauhawkinson-april.vercel.app",
     githubUrl: "https://github.com/beauhawkinson/april",
     logo: aprilLogo,
+  },
+  {
+    name: "Wedding Website",
+    description:
+      "A wedding website built early in my career and recently brought back to life as a portfolio piece. Features a Supabase-backed photo gallery with real-time uploads (Postgres, Storage, and Realtime), an animated hero with a live countdown, a swipeable wedding-party section, FAQ and accommodations guides, and a registry modal. Originally shipped on Next.js 13 and since modernized to Next.js 16, React 19, and Tailwind v4.",
+    date: "2023",
+    githubUrl: "https://github.com/beauhawkinson/clay-wedding",
+    websiteUrl: "https://clay-wedding.vercel.app/",
+    logo: clayWeddingLogo,
   },
 ];
 
