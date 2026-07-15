@@ -47,7 +47,7 @@ const freelanceProjects: ProjectProps[] = [
       "A full-stack e-commerce apparel store for premium motocross gear. Built with TanStack Start, PostgreSQL, and Drizzle ORM for type-safe database queries. Features Google OAuth authentication via better-auth, Stripe payment processing with webhook-driven order management, product variants (sizes), and inventory tracking. Orders are fulfilled directly from the Stripe Dashboard, with real-time stock updates and refund handling.",
     client: "Porterhouse MX",
     status: "active",
-    websiteUrl: "https://porterhouse-mx.vercel.app/",
+    websiteUrl: "https://motoislife.vercel.app/",
     githubUrl: "https://github.com/beauhawkinson/porterhouse-mx",
   },
   {
