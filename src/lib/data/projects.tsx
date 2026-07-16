@@ -2,6 +2,7 @@ import aprilLogo from "@/assets/april.png";
 import clayWeddingLogo from "@/assets/clay-wedding.png";
 import neuroallyLogo from "@/assets/neuroally.png";
 import plinthLogo from "@/assets/plinth.png";
+import tailwindcssShapesLogo from "@/assets/tailwindcss-shapes.png";
 import PlinthContent from "@/components/content/plinth";
 
 import type { StaticImageData } from "next/image";
@@ -47,6 +48,15 @@ const personalProjects: ProjectProps[] = [
     githubUrl: "https://github.com/beauhawkinson/clay-wedding",
     websiteUrl: "https://clay-wedding.vercel.app/",
     logo: clayWeddingLogo,
+  },
+  {
+    name: "Tailwind CSS Shapes",
+    description:
+      "One of my first hosted sites — a gallery of geometric shapes built purely from Tailwind CSS borders, plus a few playful components. Kept as-is as a time capsule of where I started.",
+    date: "August 2022",
+    websiteUrl: "https://tailwindcss-shapes.vercel.app/",
+    githubUrl: "https://github.com/beauhawkinson/tailwindcss-shapes",
+    logo: tailwindcssShapesLogo,
   },
 ];
 
